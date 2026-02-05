@@ -33,7 +33,7 @@ $ImportFile  = Import-Csv -Path $inputFilePath -Delimiter ";"
 $RowsToProcess = $ImportFile.Count
 $ImportFIle | ForEach-Object {
     $CustId = $_.InvoiceAccount
-    $FileNamePrefix = "flri/ie/" + $_.FilePrefix
+    $FileNamePrefix = "sub/folder/" + $_.FilePrefix
 
     # Search for blob
     $blob = az storage blob list `
@@ -58,5 +58,6 @@ $ImportFIle | ForEach-Object {
     -Status "$i of $RowsToProcess processed" `
     -PercentComplete (($i / $RowsToProcess) * 100)
 }
+
 
 Stop-Transcript
