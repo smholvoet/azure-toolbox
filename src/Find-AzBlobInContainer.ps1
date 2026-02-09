@@ -24,7 +24,7 @@ else {
     Write-Host "Successfully connected to the storage account and container." -ForegroundColor Green
 }
 
-# Create log file before stalking bulk operation
+# Create log file before starting bulk operation
 $logFilePath = $downloadDirectory + (Get-Date -Format "yyyyMMdd_HHmmss") + "_blob-download_log.txt"
 Start-Transcript -Path $logFilePath -Append
 
@@ -61,3 +61,4 @@ $ImportFIle | ForEach-Object {
 
 
 Stop-Transcript
+
